@@ -1,0 +1,111 @@
+{
+    "tasklist": [
+        {
+            "taskname": "alguma coisa",
+            "check": false
+        },
+        {
+            "taskname": "valor3",
+            "check": false
+        }
+    ],
+    "teste": [
+        {
+            "taskname": "teste",
+            "check": false
+        },
+        {
+            "taskname": "teste1000",
+            "check": false
+        },
+        {
+            "taskname": "teste10000",
+            "check": false
+        }
+    ],
+    "default": [
+        {
+            "taskname": "oi",
+            "check": false
+        }
+    ],
+    "oi": [
+        {
+            "taskname": "salve",
+            "check": false
+        },
+        {
+            "taskname": "oi",
+            "check": false
+        }
+    ],
+    "LEVEL": [],
+    "Supermercado": [
+        {
+            "taskname": "Sanduiche",
+            "check": false
+        }
+    ],
+    "Coisas para fazer": [
+        {
+            "taskname": "Deitar",
+            "check": false
+        }
+    ],
+    "Licao de casa": [],
+    "Mercado": [
+        {
+            "taskname": "Macarrao",
+            "check": false
+        }
+    ],
+    "TESTE": [
+        {
+            "taskname": "Teste",
+            "check": false
+        }
+    ],
+    "Nova lista": [
+        {
+            "taskname": "as",
+            "check": false
+        },
+        {
+            "taskname": "asasa",
+            "check": false
+        }
+    ],
+    "NAO TEM LISTA": [],
+    "Coisas da casa": [
+        {
+            "taskname": "Televisao",
+            "check": false
+        }
+    ],
+    "Lucas": [
+        {
+            "taskname": "NADA",
+            "check": false
+        }
+    ],
+    "Outra lista": [
+        {
+            "taskname": "Bla",
+            "check": false
+        }
+    ],
+    "Lista3": [
+        {
+            "taskname": "1",
+            "check": false
+        },
+        {
+            "taskname": "2",
+            "check": false
+        },
+        {
+            "taskname": "3",
+            "check": false
+        }
+    ]
+}

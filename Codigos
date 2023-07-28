@@ -1,0 +1,320 @@
+x = float(input("Enter value for x: "))
+
+# Write your code here.
+y = float(1/(x+1/(x+1/(x+1/x))))
+
+print("y =", y)
+
+#--------------------------------------------------------------
+
+# input a float value for variable a here
+a = float(input("Input your value here: "))
+print(a)
+# input a float value for variable b here
+b = float(input("Input the value you want to add to the previous one here: "))
+print(b)
+
+# output the result of addition here
+print("A + B =", a + b)
+# output the result of subtraction here
+print("A - B =", a - b)
+# output the result of multiplication here
+print("A x B =", a * b)
+# output the result of division here
+print("A / B =", a / b)
+
+print("\nThat's all, folks!")
+
+#--------------------------------------------------------------
+hour = int(input("Starting time (hours): "))
+mins = int(input("Starting time (minutes): "))
+dura = int(input("Event duration (minutes): "))
+
+# Write your code here.
+mins = mins + dura
+#print(mins % 60)
+#print(mins // 60)
+hour = hour + mins // 60
+#print(hour)
+
+print(hour % 24, ":" , mins % 60, sep="")
+
+#--------------------------------------------------------------
+name = input("Enter your name: ")
+print("Hello, " + name + ". Nice to meet you!")
+
+print("\nPress Enter to end the program.")
+input()
+print("THE END.")
+
+#--------------------------------------------------------------
+name = input("Insira seu nome: ")
+surname = input("Insira seu sobrenome: ")
+print("Seu nome está correto? ", "\nTecle enter para confirmar")
+input()
+print("Parabéns, " + name + ' ' + surname + ". Você passou no teste!")
+
+#--------------------------------------------------------------
+print("O que você está fazendo?")
+Answer = input("Insira sua resposta aqui: ")
+print("Que legal! Continue o seu fantástico trabalho fazendo" + " " + Answer + "!")
+
+#--------------------------------------------------------------
+n = int(input("Write your value here: "))
+print(n >= 100)
+
+#--------------------------------------------------------------
+# Read two numbers
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+
+# Choose the larger number
+if number1 > number2:
+    larger_number = number1
+else:
+    larger_number = number2
+
+# Print the result
+print("The larger number is:", larger_number)
+
+#--------------------------------------------------------------
+# Read three numbers
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+number3 = int(input("Enter the third number: "))
+
+# We temporarily assume that the first number is the largest one.
+# We will verify this soon.
+largest_number = number1
+
+# We check if the second number is larger than current largest_number
+# and update largest_number if needed.
+if number2 > largest_number:
+    largest_number = number2
+
+# We check if the third number is larger than current largest_number
+# and update largest_number if needed.
+if number3 > largest_number:
+    largest_number = number3
+
+# Print the result
+print("The largest number is:", largest_number)
+
+#--------------------------------------------------------------
+number1 = int(input("Coloque teu numero aq: "))
+number2 = int(input("Coloque teu segundo numero aq: "))
+number3 = int(input("Coloque teu terceiro numero aq: "))
+
+largest_number = number1 
+
+if number2 > largest_number:
+    largest_number = number2
+
+if number3 > number2:
+    largest_number = number3
+
+print("O maior numero eh:", largest_number)
+
+#--------------------------------------------------------------
+myInput = input("What do you have to say? ")
+
+if myInput == "Spathiphyllum":
+    print("Yes - Spathiphyllum is the best plant ever!")
+if myInput == "spathiphyllum":
+    print("No, I want a big Spathiphyllum!")
+if myInput != "Spathiphyllum" and myInput != "spathiphyllum":
+    print("Spathiphyllum! Not,", myInput)
+
+#--------------------------------------------------------------
+import tkinter 
+from tkinter import *
+import json
+
+root=Tk()
+root.title("To-Do-List")
+root.geometry("400x650+400+100")
+root.resizable(False,False)
+
+task_list= []
+
+def addTask():
+    task = task_entry.get()
+    task_entry.delete(0, END)
+
+    if task:
+        branch = branch_entry.get()
+        if not branch: 
+            branch = "default"  # If no branch name is provided, use "default"
+
+        new_task = {
+            "taskname": task,
+            "check": False
+        }
+
+        with open('tasklist.json', 'r') as f:
+            data = json.load(f)
+            if branch not in data:
+                data[branch] = []  # Create the branch if it doesn't exist
+            data[branch].append(new_task)
+
+        with open('tasklist.json', 'w') as fw:
+            json.dump(data, fw, indent=4, separators=(',', ': '))
+
+        # Clear the listbox and then re-populate it with tasks from the selected branch
+        listbox.delete(0, END)
+        selected_branch = branch_var.get()
+        if selected_branch in data:
+            for task_data in data[selected_branch]:
+                listbox.insert(END, task_data["taskname"])
+
+def onBranchSelected(event=None):  # Make the event optional to allow manual and button-based calls
+    selected_branch = branch_var.get()
+    listbox.delete(0, END)
+    with open('tasklist.json', 'r') as f:
+        data = json.load(f)
+        if selected_branch in data:
+            for task_data in data[selected_branch]:
+                listbox.insert(END, task_data["taskname"])
+
+def load_options_from_json():
+    with open("tasklist.json", 'r') as file:
+        data = json.load(file)
+        return data
+        
+        
+def deleteTask():
+    selected_index = listbox.curselection()
+    if not selected_index:
+        return
+
+    selected_index = selected_index[0]  # The curselection() method returns a tuple; get the first item (index)
+
+    selected_branch = branch_var.get()
+    if not selected_branch:
+        selected_branch = "default"  # If no branch name is provided, use "default"
+
+    with open('tasklist.json', 'r') as f:
+        data = json.load(f)
+        if selected_branch in data:
+            del data[selected_branch][selected_index]  # Remove the task at the selected index
+
+    with open('tasklist.json', 'w') as fw:
+        json.dump(data, fw, indent=4, separators=(',', ': '))
+
+    # Clear the listbox and then re-populate it with tasks from the selected branch
+    listbox.delete(0, END)
+    if selected_branch in data:
+        for task_data in data[selected_branch]:
+            listbox.insert(END, task_data["taskname"])
+
+
+def openTaskFile():
+
+    try:
+        global task_list
+        with open("tasklist.txt","r") as taskfile:
+            tasks = taskfile.readlines()
+
+        for task in tasks:
+            if task !='\n':
+                task_list.append(task)
+                listbox.insert(END, task)
+
+    except:
+        file=open('tasklist.txt', 'w')
+        file.close()
+     
+def update_entry_with_option(event):
+    selected_option = Listaprincipal.get()
+    branch_var.set(selected_option)
+    
+    
+
+#ícone
+Image_Icon=PhotoImage(file="Imagens/task.png")
+root.iconphoto(False, Image_Icon)
+
+#barra do topo
+TopImage=PhotoImage(file="Imagens/topbar.png")
+Label(root,image=TopImage).pack()
+
+dockImage=PhotoImage(file="Imagens/dock.png")
+Label(root, image=dockImage,bg="#32405b").place(x=30, y=25)
+
+noteImage=PhotoImage(file="Imagens/task.png")
+Label(root, image=noteImage, bg="#32405b").place(x=340, y=20)
+
+heading=Label(root,text="ALL TASKS", font="arial 20 bold", fg="white", bg="#32405b")
+heading.place(x=150, y=20)
+
+#main
+frame= Frame(root,width=400,height=50,bg="white")
+frame.place(x=0, y=180)
+
+task=StringVar()
+task_entry=Entry(frame,width=18,font="arial 20", bd=0)
+task_entry.place(x=10, y=7)
+task_entry.focus()
+
+button=Button(frame,text="ADD",font="arial 12 bold",width=6,bg="#5a95ff",fg="#5a95ff",bd=0, command=addTask)
+button.place(x=300,y=5) 
+
+# listbox
+frame1 = Frame(root, bd=3, width=700, height=280, bg="#32405b")
+frame1.pack(pady=(160, 0))
+
+listbox = Listbox(frame1, font=('arial', 12), width=50, height=20, bg="#32405b", fg="white", cursor="hand2", selectbackground="#5a95ff")
+listbox.pack(side=LEFT, fill=BOTH, padx=2)
+
+scrollbar = Scrollbar(frame1, command=listbox.yview)
+scrollbar.pack(side=RIGHT, fill=Y)
+
+listbox.config(yscrollcommand=scrollbar.set)
+
+
+openTaskFile()
+
+#delete
+Delete_icon=PhotoImage(file="Imagens/delete.png")
+Button(root, image=Delete_icon, bd=0, command=deleteTask).pack(side=BOTTOM, pady=13)
+
+# Additional branch input
+branch_label = Label(root, text="Lista:", font="arial 12 bold", fg="white", bg="#32405b")
+branch_label.place(x=35, y=120)
+
+branch_var = StringVar()
+branch_entry = Entry(root, textvariable=branch_var, font="arial 12", bd=0)
+branch_entry.place(x=80, y=120)
+branch_entry.focus()
+
+
+OPTIONS = load_options_from_json()
+Listaprincipal = StringVar(root)
+menu = OptionMenu(root, Listaprincipal, *OPTIONS)
+menu.place(x=35, y=140)
+
+# Bind the branch selection to onBranchSelected function
+branch_var.trace("w", onBranchSelected)
+
+branch_var = StringVar()
+branch_entry = Entry(root, textvariable=branch_var, font="arial 12", bd=0)
+branch_entry.place(x=80, y=120)
+branch_entry.focus()
+
+# Show Tasks button to display tasks from the selected branch
+show_tasks_button = Button(root, text="Show Tasks", font="arial 12 bold", background="#5a95ff", fg="#5a95ff", bd=0, command=onBranchSelected)
+show_tasks_button.place(x=250, y=120)
+
+
+
+root.mainloop() 
+#--------------------------------------------------------------
+
+
+
+
+
+
+
+
+
