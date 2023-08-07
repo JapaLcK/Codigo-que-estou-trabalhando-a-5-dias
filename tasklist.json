@@ -1,111 +1,28 @@
 {
-    "tasklist": [
+    "tasklist": [],
+    "Coisas de casa": [
         {
-            "taskname": "alguma coisa",
-            "check": false
-        },
-        {
-            "taskname": "valor3",
-            "check": false
-        }
-    ],
-    "teste": [
-        {
-            "taskname": "teste",
-            "check": false
-        },
-        {
-            "taskname": "teste1000",
-            "check": false
-        },
-        {
-            "taskname": "teste10000",
-            "check": false
-        }
-    ],
-    "default": [
-        {
-            "taskname": "oi",
-            "check": false
-        }
-    ],
-    "oi": [
-        {
-            "taskname": "salve",
-            "check": false
-        },
-        {
-            "taskname": "oi",
-            "check": false
-        }
-    ],
-    "LEVEL": [],
-    "Supermercado": [
-        {
-            "taskname": "Sanduiche",
-            "check": false
-        }
-    ],
-    "Coisas para fazer": [
-        {
-            "taskname": "Deitar",
-            "check": false
-        }
-    ],
-    "Licao de casa": [],
-    "Mercado": [
-        {
-            "taskname": "Macarrao",
-            "check": false
-        }
-    ],
-    "TESTE": [
-        {
-            "taskname": "Teste",
+            "taskname": "Arrumar o quarto",
             "check": false
         }
     ],
     "Nova lista": [
         {
-            "taskname": "as",
-            "check": false
-        },
-        {
-            "taskname": "asasa",
-            "check": false
+            "taskname": "asdasdasd",
+            "check": true
         }
     ],
-    "NAO TEM LISTA": [],
-    "Coisas da casa": [
+    "GRANDE LISTA NOME": [
         {
-            "taskname": "Televisao",
-            "check": false
+            "taskname": "TESTE",
+            "check": true
         }
     ],
-    "Lucas": [
+    "New list": [],
+    "default": [
         {
-            "taskname": "NADA",
-            "check": false
-        }
-    ],
-    "Outra lista": [
-        {
-            "taskname": "Bla",
-            "check": false
-        }
-    ],
-    "Lista3": [
-        {
-            "taskname": "1",
-            "check": false
-        },
-        {
-            "taskname": "2",
-            "check": false
-        },
-        {
-            "taskname": "3",
-            "check": false
+            "taskname": "asdasdasdas",
+            "check": true
         }
     ]
 }
