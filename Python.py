@@ -224,8 +224,8 @@ check_button = Button(root, text="Check", font="arial 12 bold", bg="#5a95ff", fg
 check_button.place(x=250, y=600)
 
 # Bind the delete button function to the Delete Task button
-delete_button = Button(root, text="Delete Task", font="arial 12 bold", bg="#5a95ff", fg="#5a95ff", bd=0, command=deleteTask)
-delete_button.pack(x=250, y=550)
+delete_button = Button(root, text="Delete Task", font="arial 12 bold", bg="#5a95ff", fg="white", bd=0, command=deleteTask)
+delete_button.place(x=250, y=550)
 
 openTaskFile()
 
